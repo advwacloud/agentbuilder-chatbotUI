@@ -1,4 +1,4 @@
-import { API_PREFIX } from '@/config'
+import { API_PREFIX, API_KEY } from '@/config'
 import Toast from '@/app/components/base/toast'
 import type { AnnotationReply, MessageEnd, MessageReplace, ThoughtItem } from '@/app/components/chat/type'
 import type { VisionFile } from '@/types/app'
@@ -15,9 +15,10 @@ const ContentType = {
 const baseOptions = {
   method: 'GET',
   mode: 'cors',
-  credentials: 'include', // always send cookies、HTTP Basic authentication.
+  //credentials: 'include', // always send cookies、HTTP Basic authentication.
   headers: new Headers({
     'Content-Type': ContentType.json,
+    'Authorization': `Bearer ${API_KEY}`
   }),
   redirect: 'follow',
 }
